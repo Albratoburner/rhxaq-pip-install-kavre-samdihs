@@ -1,0 +1,54 @@
+{
+  "system": "Library Borrowing Management",
+  "description": "State machine for book borrowing lifecycle",
+  "states": {
+    "borrowed": {
+      "description": "Book is currently borrowed by a member",
+      "allowed_next": ["returned", "overdue"],
+      "rules": [
+        "Book available_copies decremented",
+        "Member cannot borrow same book again until returned",
+        "Member must be within max_borrows limit"
+      ]
+    },
+    "returned": {
+      "description": "Book has been returned to the library",
+      "allowed_next": [],
+      "rules": [
+        "Book available_copies incremented",
+        "Return date recorded",
+        "Final state - no further transitions"
+      ]
+    },
+    "overdue": {
+      "description": "Book is past due date and not yet returned",
+      "allowed_next": ["returned"],
+      "rules": [
+        "Due date has passed",
+        "Book still counted as borrowed",
+        "Can only transition to returned"
+      ]
+    }
+  },
+  "initial_state": "borrowed",
+  "final_states": ["returned"],
+  "business_rules": {
+    "no_duplicate_borrowings": "A member cannot borrow the same book twice while status is 'borrowed'",
+    "availability_check": "Books can only be borrowed if available_copies > 0",
+    "max_borrow_limit": "Members cannot exceed their max_borrows limit for active borrowings",
+    "unique_constraints": {
+      "books.isbn": "Each book must have unique ISBN",
+      "members.email": "Each member must have unique email",
+      "members.membership_id": "Each member must have unique membership ID"
+    }
+  },
+  "current_example": {
+    "borrowing_id": 1,
+    "status": "borrowed",
+    "allowed_next": ["returned", "overdue"],
+    "book": "The Great Gatsby",
+    "member": "John Doe",
+    "borrowed_date": "2025-12-01",
+    "due_date": "2025-12-15"
+  }
+}

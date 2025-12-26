@@ -30,12 +30,4 @@
     <a href="/members"><button>Register Member</button></a>
     <a href="/borrow"><button>Borrow Book</button></a>
 </div>
-
-<h2>Business Rules Enforced</h2>
-<ul style="line-height: 2;">
-    <li><strong>No duplicate active borrowings:</strong> A member cannot borrow the same book twice while it's still borrowed</li>
-    <li><strong>Available copies tracking:</strong> System automatically updates available copies when books are borrowed/returned</li>
-    <li><strong>Unique constraints:</strong> Books have unique ISBN, members have unique email and membership ID</li>
-    <li><strong>Maximum borrow limit:</strong> Members have a maximum borrow limit (default: 3 books)</li>
-</ul>
 @endsection
