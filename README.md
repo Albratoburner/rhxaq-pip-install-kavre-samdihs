@@ -79,7 +79,7 @@ The JSON file documents:
 ### Prerequisites
 - PHP 8.1 or higher
 - Composer
-- MySQL or SQLite database
+- MySQL 
 
 ### Installation Steps
 
