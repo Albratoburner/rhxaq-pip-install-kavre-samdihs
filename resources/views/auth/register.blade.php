@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Library System</title>
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -62,8 +63,8 @@
     </style>
 </head>
 <body>
-    <div class="register-container">
-        <h1>📚 Register</h1>
+    <div class="auth-container">
+        <h1>📚 Create Account</h1>
 
         @if($errors->any())
             <div class="alert alert-error">
@@ -76,25 +77,25 @@
         <form action="/register" method="POST">
             @csrf
             <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" value="{{ old('name') }}" required autofocus>
+                <label>👤 Full Name</label>
+                <input type="text" name="name" value="{{ old('name') }}" placeholder="Enter your full name" required autofocus>
             </div>
             <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" value="{{ old('email') }}" required>
+                <label>📧 Email Address</label>
+                <input type="email" name="email" value="{{ old('email') }}" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" required>
+                <label>🔒 Password</label>
+                <input type="password" name="password" placeholder="Minimum 6 characters" required>
             </div>
             <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="password_confirmation" required>
+                <label>🔒 Confirm Password</label>
+                <input type="password" name="password_confirmation" placeholder="Re-enter password" required>
             </div>
-            <button type="submit">Register</button>
+            <button type="submit">Create Account</button>
         </form>
 
-        <div class="login-link">
+        <div class="auth-link">
             Already have an account? <a href="/login">Login here</a>
         </div>
     </div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Library System</title>
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -62,8 +63,8 @@
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>📚 Library System</h1>
+    <div class="auth-container">
+        <h1>📚 Library System Login</h1>
 
         @if(session('error'))
             <div class="alert alert-error">{{ session('error') }}</div>
@@ -76,18 +77,18 @@
         <form action="/login" method="POST">
             @csrf
             <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" required autofocus>
+                <label>📧 Email Address</label>
+                <input type="email" name="email" placeholder="Enter your email" required autofocus>
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" required>
+                <label>🔒 Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Login to Library System</button>
         </form>
 
-        <div class="register-link">
-            Don't have an account? <a href="/register">Register here</a>
+        <div class="auth-link">
+            Don't have an account? <a href="/register">Create one now</a>
         </div>
     </div>
 </body>
