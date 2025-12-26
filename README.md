@@ -192,9 +192,9 @@ borrowing_state.json      - State machine documentation
 
 - Laravel 11
 - PHP 8.4
-- MySQL
 - Blade Templates
 - CSS3
+- MySQL
 
 ## License
 
